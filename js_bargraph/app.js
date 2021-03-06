@@ -35,7 +35,6 @@ d3.csv("ethnicity_counts.csv").then(function(ethData) {
   // Cast the hours value to a number for each piece of tvData
   ethData.forEach(function(data) {
     data.count = +data.count;
-    data.caucasian = String(data.caucasian);
   });
 
   var barSpacing = 10; // desired space between each bar
