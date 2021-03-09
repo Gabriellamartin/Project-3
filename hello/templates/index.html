@@ -1,239 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>Project 3</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-  body {
-    font: 400 15px/1.8 Lato, sans-serif;
-    color: #777;
-  }
-  h3, h4 {
-    margin: 10px 0 30px 0;
-    letter-spacing: 10px;      
-    font-size: 20px;
-    color: #111;
-  }
-  .container {
-    padding: 80px 120px;
-  }
-  .person {
-    border: 10px solid transparent;
-    margin-bottom: 25px;
-    width: 80%;
-    height: 80%;
-    opacity: 0.7;
-  }
-  .person:hover {
-    border-color: #f1f1f1;
-  }
-  .carousel-inner img {
-    -webkit-filter: grayscale(90%);
-    filter: grayscale(90%); /* make all photos black and white */ 
-    width: 100%; /* Set width to 100% */
-    margin: auto;
-  }
-  .carousel-caption h3 {
-    color: #fff !important;
-  }
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
-    }
-  }
-  .bg-1 {
-    background: #2d2d30;
-    color: #bdbdbd;
-  }
-  .bg-1 h3 {color: #fff;}
-  .bg-1 p {font-style: italic;}
-  .list-group-item:first-child {
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-  }
-  .list-group-item:last-child {
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  .thumbnail {
-    padding: 0 0 15px 0;
-    border: none;
-    border-radius: 0;
-  }
-  .thumbnail p {
-    margin-top: 15px;
-    color: #555;
-  }
-  .btn {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #f1f1f1;
-    border-radius: 0;
-    transition: .2s;
-  }
-  .btn:hover, .btn:focus {
-    border: 1px solid #333;
-    background-color: #fff;
-    color: #000;
-  }
-  .modal-header, h4, .close {
-    background-color: #333;
-    color: #fff !important;
-    text-align: center;
-    font-size: 30px;
-  }
-  .modal-header, .modal-body {
-    padding: 40px 50px;
-  }
-  .nav-tabs li a {
-    color: #777;
-  }
-  #googleMap {
-    width: 100%;
-    height: 400px;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }  
-  .navbar {
-    font-family: Montserrat, sans-serif;
-    margin-bottom: 0;
-    background-color: #2d2d30;
-    border: 0;
-    font-size: 11px !important;
-    letter-spacing: 4px;
-    opacity: 0.9;
-  }
-  .navbar li a, .navbar .navbar-brand { 
-    color: #d5d5d5 !important;
-  }
-  .navbar-nav li a:hover {
-    color: #fff !important;
-  }
-  .navbar-nav li.active a {
-    color: #fff !important;
-    background-color: #29292c !important;
-  }
-  .navbar-default .navbar-toggle {
-    border-color: transparent;
-  }
-  .open .dropdown-toggle {
-    color: #fff;
-    background-color: #555 !important;
-  }
-  .dropdown-menu li a {
-    color: #000 !important;
-  }
-  .dropdown-menu li a:hover {
-    background-color: red !important;
-  }
-  footer {
-    background-color: #2d2d30;
-    color: #f5f5f5;
-    padding: 32px;
-  }
-  footer a {
-    color: #f5f5f5;
-  }
-  footer a:hover {
-    color: #777;
-    text-decoration: none;
-  }  
-  .form-control {
-    border-radius: 0;
-  }
-  textarea {
-    resize: none;
-  }
-  </style>
-</head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+{% extends "base.html" %}
+{% load static %}
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#myPage">Project 3</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/Users/gabriellamartin/Desktop/project 3/index.html">Home</a></li>
-        <li><a href="/Users/gabriellamartin/Desktop/project 3/data.html">Data Clean Up</a></li>
-        <li><a href="/Users/gabriellamartin/Desktop/project 3/map.html">Mapping</a></li>
-        <li><a href="/Users/gabriellamartin/Desktop/project 3/Visuals.html">Visualizations</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Links
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="https://github.com/Gabriellamartin/Project-3">Github Repo</a></li>
-            <li><a href="https://public.tableau.com/profile/gisela.gutierrez#!/">Giselas Tableau</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+{% block content %}
 
-
-<!-- Container (The Band Section) -->
-<div id="band" class="container text-center">
-  <h1>Hello World!</h1>
-  <h3>Minority Owned Businesses in Chicago</h3>
-  <p><em></em></p>
-  <p></p>
-  <br>
-    </div>
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="{% static 'lang-logo.png'%}">
+    </a>
+    <h1>Getting Started with Python on Heroku</h1>
+    <p>This is a sample Python application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
+    <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-python"><span class="glyphicon glyphicon-flash"></span> Getting Started with Python</a>
+    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/python-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
   </div>
 </div>
+<div class="container">
+  <div class="alert alert-info text-center" role="alert">
+    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-python" class="alert-link">Getting Started with Python on Heroku</a> tutorial.
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
+      <ul>
+        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/python-getting-started">Heroku Button</a> on the repository.</li>
 
-<!-- Footer -->
-<footer class="text-center">
-  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br><br>
-  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.w3schools.com</a></p> 
-</footer>
-
-<script>
-$(document).ready(function(){
-  // Initialize Tooltip
-  $('[data-toggle="tooltip"]').tooltip(); 
-  
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-})
-</script>
-
-</body>
-</html>
+        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/python-getting-started/blob/main/Pipfile">Pipfile</a>, creating a deployable slug.</li>
+        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
+        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
+      <ul>
+        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
+        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
+        <ul>
+          <li><code>git clone https://github.com/heroku/python-getting-started.git</code> - this will create a local copy of the source code for the app</li>
+          <li><code>cd python-getting-started</code> - change directory into the local source code repository</li>
+          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
+          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-python#push-local-changes">deploy changes</a> to Heroku</li>
+        </ul>
+      </ul>
+      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
+      <ul>
+        <li><a href="https://www.heroku.com/home">Heroku</a></li>
+        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
+        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
+        <li><a href="https://devcenter.heroku.com/articles/django-app-configuration">Configuring Django Apps for Heroku</a></li>
+      </ul>
+    </div>
+  </div> <!-- row -->
+   <div class="alert alert-info text-center" role="alert">
+    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
+  </div>
+</div>
+{% endblock %}
